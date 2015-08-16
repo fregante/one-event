@@ -1,0 +1,43 @@
+{
+  "name": "one-event",
+  "version": "0.5.0",
+  "description": "Micro module to add an event listener to be executed only once",
+  "license": "MIT",
+  "repository": "bfred-it/one-event",
+  "author": {
+    "name": "Federico Brigante",
+    "email": "bfred-it@users.noreply.github.com",
+    "url": "twitter.com/bfred_it"
+  },
+  "keywords": [
+    ""
+  ],
+  "files": [
+    "index.js",
+    "dist/one-event.node.js"
+  ],
+  "main": "dist/one-event.node.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "build": "npm run es5 && npm run export && npm run minify",
+    "export": "browserify index.js --standalone oneEvent > dist/one-event.js",
+    "minify": "uglifyjs dist/one-event.js > dist/one-event.min.js",
+    "es5": "babel index.js > dist/one-event.node.js",
+    "prepublish": "npm run es5"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babelify": "^6.1.3",
+    "browserify": "^11.0.1"
+  },
+  "dependencies": {
+    "on-off": "0.0.2"
+  }
+}
