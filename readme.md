@@ -1,4 +1,4 @@
-# one-event
+# one-event [![module size](https://badge-size.herokuapp.com/bfred-it/one-event/master/dist/one-event.min.js) ![module gzipped size](https://badge-size.herokuapp.com/bfred-it/one-event/master/dist/one-event.min.js?compression=gzip)](https://github.com/bfred-it/one-event/blob/master/dist/one-event.min.js)
 
 > Micro module to add an event listener to be executed only once
 
