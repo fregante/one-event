@@ -10,7 +10,13 @@
     "url": "twitter.com/bfred_it"
   },
   "keywords": [
-    ""
+    "browser",
+    "dom",
+    "binding",
+    "event",
+    "events",
+    "once",
+    "addeventlistener",
   ],
   "files": [
     "index.js",
