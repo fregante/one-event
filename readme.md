@@ -35,6 +35,11 @@ Here's an explanation of the files included in this repo
 * `dist/one-event.min.js`: same as above, minified
 * `dist/one-event.node.js`: used by node/browserify with `require('one-event')`
 
+## Dependencies
+
+* [`on-off`](https://www.npmjs.com/package/on-off) <img alt="dependency gzipped size" src="https://badge-size.herokuapp.com/npm-dom/dom-event/master/index.js?compression=gzip&amp;label=size" height="12">
+
+
 ## License
 
 MIT © [Federico Brigante](http://twitter.com/bfred_it)
