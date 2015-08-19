@@ -7,11 +7,10 @@ exports['default'] = once;
 var _onOff = require('on-off');
 
 function getSelfRemovingHandler(element, type, listener, useCapture) {
-	var selfRemoving = function selfRemoving() {
+	return function selfRemoving() {
 		(0, _onOff.off)(element, type, listener, useCapture);
 		(0, _onOff.off)(element, type, selfRemoving, useCapture);
 	};
-	return selfRemoving;
 }
 
 function once(element, type, listener, useCapture) {

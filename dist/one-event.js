@@ -7,18 +7,18 @@ exports['default'] = once;
 
 var _onOff = require('on-off');
 
-function getSelfRemovingHandler(element, eventName, callback, capture) {
-	var selfRemoving = function selfRemoving() {
-		(0, _onOff.off)(element, eventName, callback, capture);
-		(0, _onOff.off)(element, eventName, selfRemoving, capture);
+function getSelfRemovingHandler(element, type, listener, useCapture) {
+	return function selfRemoving() {
+		(0, _onOff.off)(element, type, listener, useCapture);
+		(0, _onOff.off)(element, type, selfRemoving, useCapture);
 	};
-	return selfRemoving;
 }
 
-function once(element, eventName, callback, capture) {
+function once(element, type, listener, useCapture) {
 	var selfRemoving = getSelfRemovingHandler.apply(null, arguments);
-	(0, _onOff.on)(element, eventName, callback, capture);
-	(0, _onOff.on)(element, eventName, selfRemoving, capture);
+	(0, _onOff.on)(element, type, listener, useCapture);
+	(0, _onOff.on)(element, type, selfRemoving, useCapture);
+	return listener;
 }
 
 module.exports = exports['default'];
