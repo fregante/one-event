@@ -1,0 +1,1 @@
+var oneEvent=function(n){"use strict";function f(f,o,t,r){return function u(){n.off(f,o,t,r);n.off(f,o,u,r)}}function o(o,t,r,u){var e=f.apply(null,arguments);n.on(o,t,r,u);n.on(o,t,e,u);return r}return o}(onOff);

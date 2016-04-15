@@ -1,6 +1,6 @@
 {
   "name": "one-event",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Micro module to add an event listener to be executed only once",
   "license": "MIT",
   "repository": "bfred-it/one-event",
@@ -16,25 +16,32 @@
     "event",
     "events",
     "once",
+    "one",
     "addeventlistener"
   ],
   "files": [
-    "index.js",
-    "dist/one-event.node.js"
+    "dist/one-event.common-js.js",
+    "dist/one-event.es-modules.js"
   ],
-  "main": "dist/one-event.node.js",
+  "main": "dist/one-event.common-js.js",
+  "jsnext:main": "dist/one-event.es-modules.js",
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-    "build": "./node_modules/bfred-npm-bundler/tasks/all.sh index.js oneEvent one-event",
-    "to-npm": "./node_modules/bfred-npm-bundler/tasks/to-npm.sh index.js one-event",
-    "prepublish": "npm run to-npm"
-  },
   "devDependencies": {
-    "bfred-npm-bundler": "^1.0.0"
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "bfred-npm-bundler": "^5.0.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015-rollup"
+    ]
+  },
+  "scripts": {
+    "build": "bfred-npm-bundler one-event oneEvent",
+    "prepublish": "npm run build"
   },
   "dependencies": {
-    "on-off": "0.0.2"
+    "on-off": "^1.0.0"
   }
 }
