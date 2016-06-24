@@ -12,6 +12,16 @@ oneEvent(document.body, 'click', function () {
 }, false);
 ```
 
+Or with a promise:
+
+```js
+oneEvent.promise(document.body, 'click', false).then(function () {
+	console.log('You clicked my body. Don’t do it again.')
+});
+```
+
+To remove the listener before it's being used, you can use the standard `target.removeEventListener(listener)`
+
 ## With browserify
 
 ```sh
@@ -25,6 +35,8 @@ var oneEvent = require('one-event');
 ## API
 
 ### `oneEvent(target, type, listener, useCapture)`
+
+### `oneEvent.promise(target, type, useCapture).then(listener)`
 
 `target`, `type`, `listener`, and `useCapture` are exactly the same as what you supply to [target.addEventListener(type, listener, useCapture)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 
