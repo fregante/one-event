@@ -1,6 +1,6 @@
 {
   "name": "one-event",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Micro module to add an event listener to be executed only once",
   "license": "MIT",
   "repository": "bfred-it/one-event",
