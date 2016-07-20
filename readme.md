@@ -3,6 +3,9 @@
 > Micro module to add an event listener to be executed only once
 
 [![gzipped size](https://badges.herokuapp.com/size/github/bfred-it/one-event/master/dist/one-event.browser.js?gzip=true&label=gzipped%20size)](#readme)
+[![npm downloads](https://img.shields.io/npm/dt/one-event.svg?maxAge=2592000)](https://www.npmjs.com/package/one-event)
+
+
 
 ## Usage
 
