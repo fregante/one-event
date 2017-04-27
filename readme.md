@@ -47,6 +47,10 @@ var oneEvent = require('one-event');
 
 None!
 
+## Alternatives
+
+- [sindresorhus/p-event](https://github.com/sindresorhus/p-event) - Also compatible with EventEmitter, but it's ES2015
+
 ## License
 
 MIT © [Federico Brigante](http://twitter.com/bfred_it)
