@@ -2,23 +2,19 @@
   "name": "one-event",
   "version": "1.2.0",
   "description": "Micro module to add an event listener to be executed only once",
-  "license": "MIT",
-  "repository": "bfred-it/one-event",
-  "author": {
-    "name": "Federico Brigante",
-    "email": "bfred-it@users.noreply.github.com",
-    "url": "twitter.com/bfred_it"
-  },
   "keywords": [
+    "addeventlistener",
+    "binding",
     "browser",
     "dom",
-    "binding",
     "event",
     "events",
     "once",
-    "one",
-    "addeventlistener"
+    "one"
   ],
+  "repository": "fregante/one-event",
+  "license": "MIT",
+  "author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
   "files": [
     "dist/one-event.common-js.js",
     "dist/one-event.es-modules.js",
@@ -27,24 +23,24 @@
   "main": "dist/one-event.common-js.js",
   "jsnext:main": "dist/one-event.es-modules.js",
   "scripts": {
-    "build:js": "bfred-npm-bundler one-event oneEvent",
     "build": "npm-run-all --silent jsfix build:*",
+    "build:js": "bfred-npm-bundler one-event oneEvent",
     "jsfix": "xo --fix",
-    "watch:build": "onchange 'index.js' -i -- npm run build",
-    "watch": "npm-run-all --parallel --silent watch:*",
     "prepublish": "npm run build",
-    "test": "xo; npm run build"
+    "test": "xo; npm run build",
+    "watch": "npm-run-all --parallel --silent watch:*",
+    "watch:build": "onchange 'index.js' -i -- npm run build"
+  },
+  "xo": {
+    "env": [
+      "browser"
+    ],
+    "esnext": true
   },
   "devDependencies": {
     "bfred-npm-bundler": "^7.1.1",
     "npm-run-all": "^1.7.0",
     "onchange": "^2.2.0",
     "xo": "^0.13.0"
-  },
-  "xo": {
-    "esnext": true,
-    "env": [
-      "browser"
-    ]
   }
 }
