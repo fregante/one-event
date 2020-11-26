@@ -1,46 +1,40 @@
 {
-  "name": "one-event",
-  "version": "1.2.0",
-  "description": "Micro module to add an event listener to be executed only once",
-  "keywords": [
-    "addeventlistener",
-    "binding",
-    "browser",
-    "dom",
-    "event",
-    "events",
-    "once",
-    "one"
-  ],
-  "repository": "fregante/one-event",
-  "license": "MIT",
-  "author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
-  "files": [
-    "dist/one-event.common-js.js",
-    "dist/one-event.es-modules.js",
-    "dist/one-event.browser.js"
-  ],
-  "main": "dist/one-event.common-js.js",
-  "jsnext:main": "dist/one-event.es-modules.js",
-  "scripts": {
-    "build": "npm-run-all --silent jsfix build:*",
-    "build:js": "bfred-npm-bundler one-event oneEvent",
-    "jsfix": "xo --fix",
-    "prepublish": "npm run build",
-    "test": "xo; npm run build",
-    "watch": "npm-run-all --parallel --silent watch:*",
-    "watch:build": "onchange 'index.js' -i -- npm run build"
-  },
-  "xo": {
-    "env": [
-      "browser"
-    ],
-    "esnext": true
-  },
-  "devDependencies": {
-    "bfred-npm-bundler": "^7.1.1",
-    "npm-run-all": "^1.7.0",
-    "onchange": "^2.2.0",
-    "xo": "^0.13.0"
-  }
+	"name": "one-event",
+	"version": "1.2.0",
+	"description": "Listen to one event via `addEventListener`, then resolve a Promise",
+	"keywords": [
+		"addeventlistener",
+		"binding",
+		"browser",
+		"promise",
+		"dom",
+		"event",
+		"events",
+		"once",
+		"one"
+	],
+	"repository": "fregante/one-event",
+	"license": "MIT",
+	"types": "./index.d.ts",
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"scripts": {
+		"build": "tsc",
+		"prepack": "tsc --sourceMap false",
+		"test": "tsc && xo",
+		"watch": "tsc --watch"
+	},
+	"xo": {
+		"envs": [
+			"browser"
+		]
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@sindresorhus/tsconfig": "^0.8.0",
+		"typescript": "^4.1.2",
+		"xo": "^0.35.0"
+	}
 }

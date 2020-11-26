@@ -1,56 +1,42 @@
-# one-event
+# one-event [![][badge-gzip]][link-bundlephobia]
 
-> Micro module to add an event listener to be executed only once
+[badge-gzip]: https://img.shields.io/bundlephobia/minzip/one-event.svg?label=gzipped
+[link-bundlephobia]: https://bundlephobia.com/result?p=one-event
 
-[![gzipped size](https://badges.herokuapp.com/size/github/fregante/one-event/master/dist/one-event.browser.js?gzip=true&label=gzipped%20size)](#readme)
-[![npm downloads](https://img.shields.io/npm/dt/one-event.svg?maxAge=2592000)](https://www.npmjs.com/package/one-event)
+> Listen to one event via `addEventListener`, then resolve a Promise
 
+Note: This module is based on the [`once` option of addEventListener](https://dev.to/cilly_boloe/addeventlistener-once-js-bits-565d). Before v2 it was a replacement for it.
 
+## Install
 
-## Usage
-
-```js
-oneEvent(document.body, 'click', function () {
-	console.log('You clicked my body. Don’t do it again.')
-}, false);
 ```
-
-Or with a promise:
-
-```js
-oneEvent.promise(document.body, 'click', false).then(function () {
-	console.log('You clicked my body. Don’t do it again.')
-});
-```
-
-To remove the listener before it's being used, you can use the standard `target.removeEventListener(listener)`
-
-## With browserify
-
-```sh
-npm install --save one-event
+npm install one-event
 ```
 
 ```js
-var oneEvent = require('one-event');
+const oneEvent = require('one-event');
+
+async function init() {
+	await oneEvent(document.body, 'click', false);
+	console.log('You clicked my body. Don’t do it again.');
+}
+
+init();
 ```
 
 ## API
 
-### `oneEvent(target, type, listener, useCapture)`
+### oneEvent(target, type, options)
 
-### `oneEvent.promise(target, type, useCapture).then(listener)`
-
-`target`, `type`, `listener`, and `useCapture` are exactly the same as what you supply to [target.addEventListener(type, listener, useCapture)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
-
-## Dependencies
-
-None!
+`target`, `type`, and `options` are the same as what you supply to [target.addEventListener(type, listener, options)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 
 ## Alternatives
 
-- [sindresorhus/p-event](https://github.com/sindresorhus/p-event) - Also compatible with EventEmitter, but it's ES2015
+- [sindresorhus/p-event](https://github.com/sindresorhus/p-event) - Also compatible with `EventEmitter` so it's much bigger.
 
-## License
+## Related
 
-MIT © [Federico Brigante](https://bfred.it)
+- [one-mutation](https://github.com/fregante/one-mutation) - Observe one mutation via `MutationObserver`, then resolve a Promise.
+- [select-dom](https://github.com/fregante/select-dom) - Lightweight `querySelector`/`All` wrapper that outputs an Array.
+- [doma](https://github.com/fregante/doma) - Parse an HTML string into `DocumentFragment` or one `Element`, in a few bytes.
+- [Refined GitHub](https://github.com/sindresorhus/refined-github) - Uses this module.
