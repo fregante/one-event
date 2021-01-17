@@ -14,8 +14,13 @@ npm install one-event
 ```
 
 ```js
-const oneEvent = require('one-event');
+// This module is only offered as a ES Module
+import oneEvent from 'one-event';
+```
 
+## Usage
+
+```
 async function init() {
 	await oneEvent(document.body, 'click', false);
 	console.log('You clicked my body. Don’t do it again.');

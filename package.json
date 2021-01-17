@@ -15,6 +15,9 @@
 	],
 	"repository": "fregante/one-event",
 	"license": "MIT",
+	"type": "module",
+	"main": "index.js",
+	"module": "index.js",
 	"types": "./index.d.ts",
 	"files": [
 		"index.js",
