@@ -14,10 +14,11 @@
 		"one"
 	],
 	"repository": "fregante/one-event",
+	"funding": "https://github.com/sponsors/fregante",
 	"license": "MIT",
 	"type": "module",
-	"main": "index.js",
-	"module": "index.js",
+	"exports": "./index.js",
+	"main": "./index.js",
 	"types": "./index.d.ts",
 	"files": [
 		"index.js",
@@ -36,8 +37,8 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^0.8.0",
-		"typescript": "^4.1.2",
-		"xo": "^0.35.0"
+		"@sindresorhus/tsconfig": "^3.0.1",
+		"typescript": "^4.9.5",
+		"xo": "^0.53.1"
 	}
 }
