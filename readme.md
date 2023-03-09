@@ -9,7 +9,7 @@ Note: This module is based on the [`once` option of addEventListener](https://de
 
 ## Install
 
-```
+```sh
 npm install one-event
 ```
 
@@ -20,7 +20,7 @@ import oneEvent from 'one-event';
 
 ## Usage
 
-```
+```js
 async function init() {
 	await oneEvent(document.body, 'click', false);
 	console.log('You clicked my body. Don’t do it again.');
