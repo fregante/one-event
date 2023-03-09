@@ -61,7 +61,7 @@ jobs:
       - run: >-
           echo '<script type="module">${{ env.IMPORT_TEXT }} "${{
           env.NPM_MODULE_NAME }}"</script>' > index.html
-      - run: npx vite build
+      - run: npx vite@4 build
       - run: cat dist/assets/*
   esbuild:
     runs-on: ubuntu-latest
