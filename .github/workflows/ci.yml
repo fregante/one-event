@@ -16,7 +16,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
-          cache: npm
       - name: install
         run: npm ci || npm install
       - name: XO
@@ -28,7 +27,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
-          cache: npm
       - name: install
         run: npm ci || npm install
       - name: build
