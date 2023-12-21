@@ -1,5 +1,5 @@
 export default async function oneEvent(
-	target: Element,
+	target: EventTarget,
 	type: string,
 	options: boolean | AddEventListenerOptions = {},
 ): Promise<Event> {
