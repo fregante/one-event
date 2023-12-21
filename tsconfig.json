@@ -1,9 +1,5 @@
 {
 	"extends": "@sindresorhus/tsconfig",
-	"compilerOptions": {
-		"module": "es2015",
-		"target": "es2017"
-	},
 	"files": [
 		"index.ts"
 	]
