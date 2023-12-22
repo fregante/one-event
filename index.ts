@@ -4,10 +4,10 @@ export default async function oneEvent(
 	options: AddEventListenerOptions = {},
 ): Promise<Event | void> {
 	options.once = true;
-	return new Promise(resolve => {
+	return new Promise((resolve, reject) => {
 		target.addEventListener(type, resolve, options);
 		options.signal?.addEventListener('abort', () => {
-			resolve();
+			reject(options.signal!.reason);
 		}, {once: true});
 	});
 }
