@@ -1,6 +1,6 @@
 {
 	"name": "one-event",
-	"version": "4.2.0",
+	"version": "4.3.0",
 	"description": "Listen to one event via `addEventListener`, then resolve a Promise",
 	"keywords": [
 		"addeventlistener",
