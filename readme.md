@@ -33,7 +33,13 @@ init();
 
 ### oneEvent(target, type, options)
 
-`target`, `type`, and `options` are the same as what you supply to [target.addEventListener(type, listener, options)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+`target`, `type`, and `options` are the same as what you supply to [target.addEventListener(type, listener, options)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), with the addition of a `filter` to the `options` object.
+
+#### options.filter
+
+Type: `(event: Event) => boolean`
+
+A filter function that will be called with the event that triggered the listener. The promise will resolve only once the filter returns `true`.
 
 ## Alternatives
 
@@ -44,7 +50,7 @@ init();
 - [one-mutation](https://github.com/fregante/one-mutation) - Observe one mutation via `MutationObserver`, then resolve a Promise.
 - [select-dom](https://github.com/fregante/select-dom) - Lightweight `querySelector`/`All` wrapper that outputs an Array.
 - [doma](https://github.com/fregante/doma) - Parse an HTML string into `DocumentFragment` or one `Element`, in a few bytes.
-- [Refined GitHub](https://github.com/sindresorhus/refined-github) - Uses this module.
+- [Refined GitHub](https://github.com/refined-github/refined-github) - Uses this module.
 
 ## License
 
