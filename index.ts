@@ -4,21 +4,29 @@ export type OneEventOptions = Omit<AddEventListenerOptions, 'once'> & {
 
 export default async function oneEvent(
 	target: EventTarget,
-	type: string,
+	typeOrTypes: string | string[],
 	options: OneEventOptions = {},
 ): Promise<Event | void> {
 	const {filter, ...nativeOptions} = options;
 	return new Promise((resolve, reject) => {
-		const options = {...nativeOptions, once: !filter};
-		const callback = filter ? (event: Event) => {
-			if (filter(event)) {
-				resolve(event);
-				target.removeEventListener(type, callback, options);
-			}
-		} : resolve;
-		target.addEventListener(type, callback, options);
-		options.signal?.addEventListener('abort', () => {
-			reject(options.signal!.reason);
+		const controller = new AbortController();
+
+		const callback = (event: Event) => {
+			if (filter && !filter(event)) return;
+			controller.abort();
+			resolve(event);
+		};
+
+		[typeOrTypes].flat().forEach((type) =>
+			target.addEventListener(type, callback, {
+				...nativeOptions,
+				signal: controller.signal,
+			}),
+		);
+
+		nativeOptions.signal?.addEventListener('abort', () => {
+			controller.abort();
+			reject(nativeOptions.signal!.reason);
 		}, {once: true});
 	});
 }
