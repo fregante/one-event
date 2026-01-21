@@ -24,6 +24,9 @@ import oneEvent from 'one-event';
 async function init() {
 	await oneEvent(document.body, 'click', false);
 	console.log('You clicked my body. Don’t do it again.');
+	 
+	const event = await oneEvent(document.head, ['mousedown', 'touchstart']);
+	console.log('Knockout with:', event.type);
 }
 
 init();
@@ -31,9 +34,15 @@ init();
 
 ## API
 
-### oneEvent(target, type, options)
+### oneEvent(target, typeOrTypes, options)
 
-`target`, `type`, and `options` are the same as what you supply to [target.addEventListener(type, listener, options)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), with the addition of a `filter` to the `options` object.
+`target` and `options` are the same as what you supply to [target.addEventListener(type, listener, options)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), with the addition of a `filter` to the `options` object.
+
+#### typeOrTypes
+
+Type: `string | string[]`
+
+Matches the `type` parameter of `addEventListener`, but can also be used to listen to multiple events. The promise resolves when the first one happens.
 
 #### options.filter
 
