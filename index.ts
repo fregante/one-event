@@ -12,17 +12,20 @@ export default async function oneEvent(
 		const controller = new AbortController();
 
 		const callback = (event: Event) => {
-			if (filter && !filter(event)) return;
+			if (filter && !filter(event)) {
+				return;
+			}
+
 			controller.abort();
 			resolve(event);
 		};
 
-		[typeOrTypes].flat().forEach((type) =>
+		for (const type of [typeOrTypes].flat()) {
 			target.addEventListener(type, callback, {
 				...nativeOptions,
 				signal: controller.signal,
-			}),
-		);
+			});
+		}
 
 		nativeOptions.signal?.addEventListener('abort', () => {
 			controller.abort();
